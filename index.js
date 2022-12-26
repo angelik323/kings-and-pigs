@@ -6,7 +6,7 @@ canvas.height = 64 * 9 //576
 
 
 const parsedCollisions = collisionsLevel1.parse2D();
-const CollisionBlocks = parsedCollisions.createObjectsFrom2D()
+const collisionBlocks = parsedCollisions.createObjectsFrom2D()
 
 
 const backgroundLevel1 = new Sprite({
@@ -17,7 +17,9 @@ const backgroundLevel1 = new Sprite({
     imageSrc: './img/backgroundLevel1.png',
 })
 
-const player = new Player()
+const player = new Player({
+    collisionBlocks,
+})
 
 const keys = {
     w: {
@@ -35,7 +37,7 @@ function animate() {
     window.requestAnimationFrame(animate)
     
     backgroundLevel1.draw();
-    CollisionBlocks.forEach(collisionBlock => {
+    collisionBlocks.forEach(collisionBlock => {
         collisionBlock.draw()
     })
 
