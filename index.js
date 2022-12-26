@@ -21,6 +21,34 @@ const player = new Player({
     collisionBlocks,
     imageSrc: '/img/king/buho-right.png',
     frameRate: 14,
+    animations: {
+        idleRight: {
+            frameRate: 14,
+            frameBuffer: 4,
+            loop: true,
+            imageSrc: '/img/king/buho-front.png',
+
+        },
+        idleLeft: {
+            frameRate: 14,
+            frameBuffer: 4,
+            loop: true,
+            imageSrc: '/img/kin/buho-front.png',
+
+        },
+        runRight: {
+            frameRate: 14,
+            frameBuffer: 3,
+            loop: true,
+            imageSrc: '/img/king/buho-right.png',
+        },
+        runLeft: {
+            frameRate: 14,
+            frameBuffer: 3,
+            loop: true,
+            imageSrc: '/img/king/buho-left.png',
+        }
+    }
 })
 
 const keys = {
@@ -45,10 +73,13 @@ function animate() {
 
     player.velocity.x = 0;
     if(keys.d.pressed) {
-        player.velocity.x = 5;
+        player.switchSprite('runRight')
+        player.velocity.x = 5
     }else if(keys.a.pressed) {
-        player.velocity.x = -5;
-    }
+        player.switchSprite('runLeft')
+        player.velocity.x = -5
+    }else player.switchSprite('idleRight')
+    
     player.draw();
     player.update();
     
