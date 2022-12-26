@@ -55,3 +55,5 @@ function animate() {
 }
 
 animate();
+
+//TODO: "IMPLEMANTAR BOTONES PARA MOVER EL SPRITE EN MOBILE"

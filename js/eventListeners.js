@@ -1,6 +1,7 @@
 
 window.addEventListener('keydown', (event) => {
     switch (event.key) {
+        //TODO: "ESCUCHAR TAMBIÉN LETRAS EN MAYÚSCULAS"
         case 'w':
             if(player.velocity.y === 0) {
                 player.velocity.y = -20;
