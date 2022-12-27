@@ -47,9 +47,29 @@ const player = new Player({
             frameBuffer: 3,
             loop: true,
             imageSrc: '/img/king/buho-left.png',
+        },
+        enterDoor: {
+            frameRate: 14,
+            frameBuffer: 3,
+            loop: false,
+            imageSrc: '/img/king/buho-enterdoor.png',
         }
     }
 })
+
+const doors = [
+    new Sprite({
+        position: {
+            x: 767,
+            y: 270,
+        },
+        imageSrc: '/img/doorOpen.png',
+        frameRate: 5,
+        frameBuffer: 5,
+        loop: false,
+        autoplay: false
+    })
+]
 
 const keys = {
     w: {
@@ -71,15 +91,11 @@ function animate() {
         collisionBlock.draw()
     })
 
-    player.velocity.x = 0;
-    if(keys.d.pressed) {
-        player.switchSprite('runRight')
-        player.velocity.x = 5
-    }else if(keys.a.pressed) {
-        player.switchSprite('runLeft')
-        player.velocity.x = -5
-    }else player.switchSprite('idleRight')
+    doors.forEach((door) => {
+        door.draw()
+    })
     
+    player.handleInput(keys);
     player.draw();
     player.update();
     
