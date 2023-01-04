@@ -23,7 +23,7 @@ const player = new Player({
             frameRate: 14,
             frameBuffer: 4,
             loop: true,
-            imageSrc: '/img/kin/buho-front.png',
+            imageSrc: '/img/king/buho-front.png',
 
         },
         runRight: {
@@ -64,7 +64,7 @@ const player = new Player({
     },
 })
 
-let level = 3;
+let level = 4;
 let levels = {
     1: {
         init: () => {
@@ -174,7 +174,44 @@ let levels = {
             ]
 
         }
-    }
+    },
+    4: {
+        init: () => {
+            parsedCollisions = collisionsLevel4.parse2D();
+            collisionBlocks = parsedCollisions.createObjectsFrom2D()
+            player.collisionBlocks = collisionBlocks
+            player.position.x = 817
+            player.position.y = 180
+
+            if(player.currentAnimation) {
+                player.currentAnimation.isActive = false
+            }
+
+
+            background = new Sprite({
+                position: {
+                    x: 0,
+                    y: 0, 
+                },
+                imageSrc: './img/backgroundLevel4.png',
+            })
+
+            doors = [
+                new Sprite({
+                    position: {
+                        x: 176,
+                        y: 335,
+                    },
+                    imageSrc: '/img/doorOpen.png',
+                    frameRate: 5,
+                    frameBuffer: 5,
+                    loop: false,
+                    autoplay: false
+                })
+            ]
+
+        }
+    },
 }
 
 
