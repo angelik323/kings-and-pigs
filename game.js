@@ -325,7 +325,6 @@ let levels = {
     },
 }
 
-
 const keys = {
     w: {
         pressed: false
