@@ -249,6 +249,80 @@ let levels = {
 
         }
     },
+    6: {
+        init: () => {
+            parsedCollisions = collisionsLevel6.parse2D();
+            collisionBlocks = parsedCollisions.createObjectsFrom2D()
+            player.collisionBlocks = collisionBlocks
+            player.position.x = 65
+            player.position.y = 506
+
+            if(player.currentAnimation) {
+                player.currentAnimation.isActive = false
+            }
+
+
+            background = new Sprite({
+                position: {
+                    x: 0,
+                    y: 0, 
+                },
+                imageSrc: './img/backgroundLevel6.png',
+            })
+
+            doors = [
+                new Sprite({
+                    position: {
+                        x: 760,
+                        y: 400,
+                    },
+                    imageSrc: '/img/doorOpen.png',
+                    frameRate: 5,
+                    frameBuffer: 5,
+                    loop: false,
+                    autoplay: false
+                })
+            ]
+
+        }
+    },
+    7: {
+        init: () => {
+            parsedCollisions = collisionsLevel7.parse2D();
+            collisionBlocks = parsedCollisions.createObjectsFrom2D()
+            player.collisionBlocks = collisionBlocks
+            player.position.x = 136
+            player.position.y = 434
+
+            if(player.currentAnimation) {
+                player.currentAnimation.isActive = false
+            }
+
+
+            background = new Sprite({
+                position: {
+                    x: 0,
+                    y: 0, 
+                },
+                imageSrc: './img/backgroundLevel7.png',
+            })
+
+            doors = [
+                new Sprite({
+                    position: {
+                        x: 760,
+                        y: 337,
+                    },
+                    imageSrc: '/img/doorOpen.png',
+                    frameRate: 5,
+                    frameBuffer: 5,
+                    loop: false,
+                    autoplay: false
+                })
+            ]
+
+        }
+    },
 }
 
 
