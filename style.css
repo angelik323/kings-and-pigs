@@ -1,3 +1,13 @@
 body {
     background-image: url(/img/fondo-prueba.png);
 }
+
+.contenedorCanva {
+    display: flex;
+    justify-content: center;
+}
+
+.centrarCanva {
+    margin: 0 auto;
+    margin-top: 3%;
+}
